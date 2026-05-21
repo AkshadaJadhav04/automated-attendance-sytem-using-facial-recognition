@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    @apply bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-700 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-600;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border border-white/20 dark:border-gray-800/50 shadow-lg;
+  }
+
+  .glass-card {
+    @apply bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl border border-gray-200/50 dark:border-gray-800/50 shadow-xl shadow-gray-200/50 dark:shadow-black/20 rounded-2xl;
+  }
+
+  .glass-nav {
+    @apply bg-white/90 dark:bg-gray-900/90 backdrop-blur-2xl border-b border-gray-200/50 dark:border-gray-800/50;
+  }
+
+  .glass-sidebar {
+    @apply bg-white/95 dark:bg-gray-900/95 backdrop-blur-2xl border-r border-gray-200/50 dark:border-gray-800/50;
+  }
+
+  .gradient-primary {
+    @apply bg-gradient-to-br from-primary-500 to-purple-600;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-purple-600;
+  }
+
+  .btn-primary {
+    @apply px-4 py-2.5 bg-gradient-to-r from-primary-500 to-purple-600 text-white rounded-xl font-medium
+           hover:from-primary-600 hover:to-purple-700 transform hover:scale-[1.02] active:scale-[0.98]
+           transition-all duration-200 shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2.5 glass border border-gray-200 dark:border-gray-700 rounded-xl font-medium
+           hover:bg-gray-50 dark:hover:bg-gray-800 transform hover:scale-[1.02] active:scale-[0.98]
+           transition-all duration-200;
+  }
+
+  .btn-danger {
+    @apply px-4 py-2.5 bg-gradient-to-r from-red-500 to-rose-600 text-white rounded-xl font-medium
+           hover:from-red-600 hover:to-rose-700 transform hover:scale-[1.02] active:scale-[0.98]
+           transition-all duration-200 shadow-lg shadow-red-500/25;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2.5 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700
+           rounded-xl focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500
+           outline-none transition-all duration-200 placeholder:text-gray-400 dark:placeholder:text-gray-500;
+  }
+
+  .stat-card {
+    @apply glass-card p-6 hover:shadow-2xl hover:shadow-primary-500/10 transition-all duration-300
+           transform hover:-translate-y-1;
+  }
+
+  .animate-in {
+    animation: fadeIn 0.5s ease-out, slideUp 0.5s ease-out;
+  }
+
+  .animate-in-delay-1 {
+    animation: fadeIn 0.5s ease-out 0.1s both, slideUp 0.5s ease-out 0.1s both;
+  }
+
+  .animate-in-delay-2 {
+    animation: fadeIn 0.5s ease-out 0.2s both, slideUp 0.5s ease-out 0.2s both;
+  }
+
+  .animate-in-delay-3 {
+    animation: fadeIn 0.5s ease-out 0.3s both, slideUp 0.5s ease-out 0.3s both;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
